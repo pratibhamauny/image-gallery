@@ -1,0 +1,40 @@
+.App{
+  width:100%;
+  margin: 30px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column;
+
+}
+.carousel-container {
+  width: 600px;
+  display: flex;
+  padding: 20px;
+  height:400px;
+  background: #b4bac0;
+}
+
+.buttons-div{
+  text-align: center;
+}
+
+img{
+  width: 600px;
+  position: absolute;
+}
+
+.footer{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+    margin-top: 400px;
+}
+
+
+
+
