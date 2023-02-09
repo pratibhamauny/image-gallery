@@ -3,11 +3,12 @@ import img2 from "../images/img2.jpg"
 import img3 from "../images/img3.jpg"
 import img4 from "../images/img4.jpg"
 import img5 from "../images/img5.jpg"
-const images = [{
-    id: 1,
-    src: img1,
-    alt: "Image 1"
-},
+const images = [
+    {
+        id: 1,
+        src: img1,
+        alt: "Image 1"
+    },
 {
     id: 2,
     src: img2,

@@ -2,7 +2,7 @@ import "./App.css";
 import images from "./assets/data/images"
 import Image from "./components/Image";
 import Button from "./components/Button";
-import { useState } from "react";
+import { useState,useEffect} from "react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -10,7 +10,7 @@ function App() {
   const [isNextDisable, setNextDisable] = useState(false);
 
   const prevBtnClick = () => {
-    if (count > 0) {
+    if (count >0) {
       setCount(count - 1);
       setNextDisable(false);
     } else {
@@ -26,6 +26,24 @@ function App() {
       setNextDisable(true);
     }
   };
+
+  useEffect(()=>{
+    if(images.length===0  ){
+      setPrevDisable(true);
+      setNextDisable(true)
+    }
+  })
+  useEffect(()=>{
+    setPrevDisable(true)
+  },[])
+  useEffect(()=>{
+    if((count+1)===images.length){
+      //setPrevDisable(true)
+      setNextDisable(true)
+    }else if(count+1===1){
+      setPrevDisable(true)
+    }
+  },[count])
   return (
     <div className="App">
       <header>
@@ -33,9 +51,9 @@ function App() {
       </header>
     
       <section>
-     
-      <Image image={images[count].src} />
-       
+     {
+      images.length!==0? <Image image={images[count].src} />:<Image/>
+     }
         <div className="buttons-div">
           <Button
             caption="Prev"
@@ -43,7 +61,9 @@ function App() {
             disable={isPrevDisable}
           />
           <span>
-            {count + 1} of {images.length}
+          {
+            images.length!==0? `${count +1} of ${images.length}`:`${count} of ${images.length}`
+          }
           </span>
           <Button
             caption="Next"
